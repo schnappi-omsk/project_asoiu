@@ -6,4 +6,9 @@ package domain;
  * Time: 14:10
  */
 public interface Staff {
+
+    String name();
+
+    Role role();
+
 }

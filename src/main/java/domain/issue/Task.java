@@ -19,6 +19,8 @@ public class Task implements Issue {
 
     private Staff assignee;
 
+    private Resolution resolution;
+
     @Override
     public void assignTo(Staff assignee) {
         this.assignee = assignee;
@@ -26,7 +28,7 @@ public class Task implements Issue {
 
     @Override
     public void open() {
-
+        startDate = new Date(System.currentTimeMillis());
     }
 
     @Override
@@ -43,12 +45,12 @@ public class Task implements Issue {
 
     @Override
     public Date startDate() {
-        return null;
+        return startDate;
     }
 
     @Override
     public Date dueDate() {
-        return null;
+        return dueDate;
     }
 
     @Override
