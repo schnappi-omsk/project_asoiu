@@ -1,7 +1,8 @@
 package domain.issue;
 
 import domain.Issue;
-import domain.Person;
+import domain.Resolution;
+import domain.Staff;
 
 import java.util.Date;
 
@@ -12,55 +13,46 @@ import java.util.Date;
  */
 public class Task implements Issue {
 
-    private Person assignee;
-
-    private boolean closed;
-
-    private Date creationDate;
+    private Date startDate;
 
     private Date dueDate;
 
-    public Person getAssignee() {
-        return assignee;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public Date getDueDate() {
-        return dueDate;
-    }
+    private Staff assignee;
 
     @Override
-    public boolean isClosed() {
-        return closed;
-    }
-
-    @Override
-    public void assignTo(Person assignee) {
+    public void assignTo(Staff assignee) {
         this.assignee = assignee;
     }
 
     @Override
-    public void create() {
-        creationDate = new Date(System.currentTimeMillis());
-    }
-
-    @Override
     public void open() {
-        closed = false;
-    }
 
-    @Override
-    public void close() {
-        closed = true;
     }
 
     @Override
     public void estimate(int hours) {
-        long creation = creationDate.getTime();
+        long creation = startDate.getTime();
         long due = creation + hours;
         dueDate = new Date(due);
+    }
+
+    @Override
+    public void close(Resolution resolution) {
+
+    }
+
+    @Override
+    public Date startDate() {
+        return null;
+    }
+
+    @Override
+    public Date dueDate() {
+        return null;
+    }
+
+    @Override
+    public Resolution status() {
+        return null;
     }
 }

@@ -1,7 +1,10 @@
 package domain.issue;
 
 import domain.Issue;
-import domain.Person;
+import domain.Resolution;
+import domain.Staff;
+
+import java.util.Date;
 
 /**
  * User: oleg
@@ -11,17 +14,7 @@ import domain.Person;
 public class Defect implements Issue {
 
     @Override
-    public boolean isClosed() {
-        return false;
-    }
-
-    @Override
-    public void assignTo(Person assignee) {
-
-    }
-
-    @Override
-    public void create() {
+    public void assignTo(Staff assignee) {
 
     }
 
@@ -31,12 +24,27 @@ public class Defect implements Issue {
     }
 
     @Override
-    public void close() {
+    public void close(Resolution resolution) {
 
     }
 
     @Override
     public void estimate(int hours) {
 
+    }
+
+    @Override
+    public Date startDate() {
+        return null;
+    }
+
+    @Override
+    public Date dueDate() {
+        return null;
+    }
+
+    @Override
+    public Resolution status() {
+        return null;
     }
 }

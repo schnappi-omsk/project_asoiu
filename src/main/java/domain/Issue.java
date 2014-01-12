@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Date;
+
 /**
  * User: oleg
  * Date: 10.01.14
@@ -7,16 +9,18 @@ package domain;
  */
 public interface Issue {
 
-    boolean isClosed();
-
-    void create();
-
     void open();
 
-    void assignTo(Person assignee);
+    void close(Resolution resolution);
 
-    void close();
+    void assignTo(Staff assignee);
 
     void estimate(int hours);
+
+    Date startDate();
+
+    Date dueDate();
+
+    Resolution status();
 
 }
